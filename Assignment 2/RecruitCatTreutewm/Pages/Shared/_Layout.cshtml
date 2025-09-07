@@ -12,59 +12,24 @@
 </head>
 <body>
     <div class="grid-layout">
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 grid-navbar">
-                <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-page="/Index">RecruitCatTreutewm</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/OurTeam">Our Team</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <div class="titlebanner grid-title">
+        <div class="jumbotron grid-title text-center">
             <h1>BuyStanders</h1>
-            <h4>Est. 4</h4>
+            <p class="lead">Est. 4</p>
         </div>
-
-        <div class="container grid-content">
+        <div class="nav flex-column nav-pills grid-navbar" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active"  id="navindex" data-toggle="pill" href="/Index" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+            <a class="nav-link"         id="navourteam" data-toggle="pill" href="/OurTeam" role="tab" aria-controls="v-pills-profile" aria-selected="false">Our Team</a>
+        </div>
+        <div class="grid-content">
             <main role="main" class="pb-3">
                 @RenderBody()
-
-                <p>What Needs Done:</p>
-                <ul>
-                    <li>Our Team page layout</li>
-                    <li>Both pages must have 2+ images</li>
-                    <li>Include screenshot of both pages</li>
-                </ul>
             </main>
         </div>
 
-        <footer class="border-top footer text-muted grid-footer">
-            <div class="container">
-                &copy; 2025 - RecruitCatTreutewm - <a asp-area="" asp-page="/Privacy">Privacy</a>
-            </div>
-        </footer>
+        <div class="border-top footer text-muted grid-footer text-center">
+                &copy; 2025 - BuyStanders | 1000 4th Ave, Cincinnati, OH 45000 | (317) 206-4741
+        </div>
     </div>
-
-
-
-
 
 
 

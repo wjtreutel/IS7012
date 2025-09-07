@@ -34,12 +34,16 @@ body {
 /* Grids */
 .grid-layout {
     display: grid;
-    grid-template-areas: 'navbar navbar navbar' '. title .' 'content content content' 'footer footer footer';
+    grid-template-areas: 'title title' 'navbar content' 'footer footer';
+    grid-template-columns: 10% auto;
+    grid-template-rows: 15% 85% 0%;
+    height: 100vh;
 }
 
 .grid-title { 
     grid-area: title;
     background-color: cornflowerblue;
+    min-height: 150px;
 }
 
 .grid-navbar {
@@ -49,20 +53,60 @@ body {
 
 .grid-content {
     grid-area: content;
-    background-color: palegreen;
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b6bedc8-6e5d-4b55-a5e2-5e510fdd0ae6/d13abwf-5016bbda-6e43-40db-a556-1d5fe6fb4c50.jpg/v1/fit/w_828,h_1072,q_70,strp/parchment_paper_texture_by_sinnedaria_d13abwf-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTY1MCIsInBhdGgiOiJcL2ZcLzRiNmJlZGM4LTZlNWQtNGI1NS1hNWUyLTVlNTEwZmRkMGFlNlwvZDEzYWJ3Zi01MDE2YmJkYS02ZTQzLTQwZGItYTU1Ni0xZDVmZTZmYjRjNTAuanBnIiwid2lkdGgiOiI8PTEyNzUifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.5gRSyAsUoVhjjefgiZL2h5xhuw0XUZr2Vyi5PAuRULw");
 }
 
 .grid-footer {
     grid-area: footer;
-    background-color: gray;
+    background-color: lightgray;
 }
 
-/* Other */
+/* Finicky Styling Changes */
 .content-block {
     border-bottom: 1px black solid;
+    min-height: 10em;
 }
 
+.content-block:last-child { border-bottom: 0; }
+
 h1 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 5em;
+    font-family: cursive;
     font-weight: bold;
 }
+
+h2 { font-family: cursive; }
+
+
+.swiper-slide { text-align: center; }
+.swiper-slide blockquote {
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+                           
+.swiper-slide cite { 
+    font-size: .8em;
+}
+
+/* Bootstrap Modifications */
+.container { 
+    min-width: 100%; 
+    min-height: 100%; 
+    margin-right: 4em;
+    marin-left: 4em;
+}
+
+
+/* Profile Objects */
+.employeeprofile { min-height: 15em; margin-left: 2em; margin-top: 2em; }
+
+.employeeprofile h3 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2em;
+}
+
+.employeeprofile h4 { font-style:italic; }
+
+.employeeprofile img { height:5em; }
+
+.employeeprofile p { }
