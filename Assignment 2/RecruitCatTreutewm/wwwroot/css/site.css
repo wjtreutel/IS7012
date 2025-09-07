@@ -32,3 +32,37 @@ body {
 
 
 /* Grids */
+.grid-layout {
+    display: grid;
+    grid-template-areas: 'navbar navbar navbar' '. title .' 'content content content' 'footer footer footer';
+}
+
+.grid-title { 
+    grid-area: title;
+    background-color: cornflowerblue;
+}
+
+.grid-navbar {
+    grid-area: navbar;
+    background-color: palevioletred;
+}
+
+.grid-content {
+    grid-area: content;
+    background-color: palegreen;
+}
+
+.grid-footer {
+    grid-area: footer;
+    background-color: gray;
+}
+
+/* Other */
+.content-block {
+    border-bottom: 1px black solid;
+}
+
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
