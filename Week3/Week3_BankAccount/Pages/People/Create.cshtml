@@ -1,0 +1,59 @@
+﻿@page
+@model Week3_BankAccount.Pages.People.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>AccountHolder</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AccountHolder.IDNumber" class="control-label"></label>
+                <input asp-for="AccountHolder.IDNumber" class="form-control" />
+                <span asp-validation-for="AccountHolder.IDNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountHolder.FirstName" class="control-label"></label>
+                <input asp-for="AccountHolder.FirstName" class="form-control" />
+                <span asp-validation-for="AccountHolder.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountHolder.LastName" class="control-label"></label>
+                <input asp-for="AccountHolder.LastName" class="form-control" />
+                <span asp-validation-for="AccountHolder.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountHolder.DateOfBirth" class="control-label"></label>
+                <input asp-for="AccountHolder.DateOfBirth" class="form-control" />
+                <span asp-validation-for="AccountHolder.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AccountHolder.IsCriminal" /> @Html.DisplayNameFor(model => model.AccountHolder.IsCriminal)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountHolder.IRSReportingNumber" class="control-label"></label>
+                <input asp-for="AccountHolder.IRSReportingNumber" class="form-control" />
+                <span asp-validation-for="AccountHolder.IRSReportingNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
