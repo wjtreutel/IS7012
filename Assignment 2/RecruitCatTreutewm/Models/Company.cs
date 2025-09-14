@@ -8,7 +8,7 @@ namespace RecruitCatTreutewm.Models
     {
         [Key]
         public int ID {  get; set; }
-        public int Name {  get; set; }
+        public string Name {  get; set; }
         public int OpenPositionID { get; set; }
         public int MinimumSalary { get; set; }
         public int MaximumSalary { get; set; }

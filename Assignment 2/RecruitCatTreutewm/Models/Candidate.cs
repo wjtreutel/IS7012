@@ -10,7 +10,7 @@ namespace RecruitCatTreutewm.Models
         public string LastName { get; set; }
         public int TargetSalary { get; set; }
         public Nullable<DateTime> StartDate {  get; set; }
-        public int CompanyID { get; set; }
+        public Nullable<int> CompanyID { get; set; }
         public int IndustryID { get; set; }
         public int JobTitleID { get; set; }
         public bool IsEmployed { get; set; }
