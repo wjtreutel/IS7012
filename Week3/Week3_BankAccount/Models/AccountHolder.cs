@@ -10,8 +10,8 @@ namespace Week3_BankAccount.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateOnly DateOfBirth { get; set; }
-        public bool IsCriminal { get; set; }
-        public int IRSReportingNumber { get; set; }
+        public bool IsNefarious { get; set; }
+        public int IRSNumber { get; set; }
 
 
         public AccountHolder()
@@ -19,8 +19,8 @@ namespace Week3_BankAccount.Models
             this.IDNumber = s_accountNumberSeed.ToString("000000000000");
             s_accountNumberSeed++;
 
-            this.IsCriminal = false;
-            this.IRSReportingNumber = 0; // see above
+            this.IsNefarious = false;
+            this.IRSNumber = 0; // see above
         }
 
         public AccountHolder(string firstName, string lastName, DateOnly dateOfBirth, bool isCriminal = false)
@@ -32,8 +32,8 @@ namespace Week3_BankAccount.Models
             s_accountNumberSeed++;
 
             if (isCriminal) { throw new Exception("Error: Do not commit fraud, please."); }
-            this.IsCriminal = isCriminal;
-            this.IRSReportingNumber = 0; // see above
+            this.IsNefarious = isCriminal;
+            this.IRSNumber = 0; // see above
         }
     }
 }

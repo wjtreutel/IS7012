@@ -28,7 +28,7 @@ namespace Week3_BankAccount.Pages.Accounts
                 return NotFound();
             }
 
-            var bankaccount = await _context.BankAccount.FirstOrDefaultAsync(m => m.Number == id);
+            var bankaccount = await _context.BankAccount.FirstOrDefaultAsync(m => m.IDNumber == id);
 
             if (bankaccount is not null)
             {

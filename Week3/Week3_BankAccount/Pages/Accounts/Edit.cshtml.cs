@@ -30,7 +30,7 @@ namespace Week3_BankAccount.Pages.Accounts
                 return NotFound();
             }
 
-            var bankaccount =  await _context.BankAccount.FirstOrDefaultAsync(m => m.Number == id);
+            var bankaccount =  await _context.BankAccount.FirstOrDefaultAsync(m => m.IDNumber == id);
             if (bankaccount == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace Week3_BankAccount.Pages.Accounts
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BankAccountExists(BankAccount.Number))
+                if (!BankAccountExists(BankAccount.IDNumber))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace Week3_BankAccount.Pages.Accounts
 
         private bool BankAccountExists(string id)
         {
-            return _context.BankAccount.Any(e => e.Number == id);
+            return _context.BankAccount.Any(e => e.IDNumber == id);
         }
     }
 }

@@ -2,13 +2,13 @@
 @model Week3_BankAccount.Pages.People.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Bank Customers";
 }
 
-<h1>Index</h1>
+<h1>Clients of Our Wonderful Bank</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Let's Make Another!</a>
 </p>
 <table class="table">
     <thead>
@@ -23,10 +23,10 @@
                 @Html.DisplayNameFor(model => model.AccountHolder[0].DateOfBirth)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AccountHolder[0].IsCriminal)
+                @Html.DisplayNameFor(model => model.AccountHolder[0].IsNefarious)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AccountHolder[0].IRSReportingNumber)
+                @Html.DisplayNameFor(model => model.AccountHolder[0].IRSNumber)
             </th>
             <th></th>
         </tr>
@@ -44,10 +44,10 @@
                 @Html.DisplayFor(modelItem => item.DateOfBirth)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsCriminal)
+                @Html.DisplayFor(modelItem => item.IsNefarious)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IRSReportingNumber)
+                @Html.DisplayFor(modelItem => item.IRSNumber)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.IDNumber">Edit</a> |

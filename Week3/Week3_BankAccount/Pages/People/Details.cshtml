@@ -2,10 +2,10 @@
 @model Week3_BankAccount.Pages.People.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "The Complete History of the Account Holder";
 }
 
-<h1>Details</h1>
+<h1>So, About the Account Holder...</h1>
 
 <div>
     <h4>AccountHolder</h4>
@@ -30,16 +30,16 @@
             @Html.DisplayFor(model => model.AccountHolder.DateOfBirth)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.AccountHolder.IsCriminal)
+            @Html.DisplayNameFor(model => model.AccountHolder.IsNefarious)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.AccountHolder.IsCriminal)
+            @Html.DisplayFor(model => model.AccountHolder.IsNefarious)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.AccountHolder.IRSReportingNumber)
+            @Html.DisplayNameFor(model => model.AccountHolder.IRSNumber)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.AccountHolder.IRSReportingNumber)
+            @Html.DisplayFor(model => model.AccountHolder.IRSNumber)
         </dd>
     </dl>
 </div>

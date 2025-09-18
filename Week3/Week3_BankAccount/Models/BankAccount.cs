@@ -12,21 +12,21 @@ namespace Week3_BankAccount.Models
         private static int s_accountNumberSeed = 1234567890;
 
         [Key]
-        public string Number { get; set; }
+        public string IDNumber { get; set; }
         public decimal CurrentBalance { get; set; }
         public string Name { get; set; }
-        public int IRSReportingNumber { get; set; }
+        public int IRSNumber { get; set; }
         public int AccountholderID { get; set; }
 
         public BankAccount()
         {
-            this.Number = s_accountNumberSeed.ToString("0000000000");
-            this.Name = this.Number;
+            this.IDNumber = s_accountNumberSeed.ToString("0000000000");
+            this.Name = this.IDNumber;
             this.CurrentBalance = 0;
             s_accountNumberSeed++;
 
             this.AccountholderID = 0;
-            this.IRSReportingNumber = 0; // filled by some other function
+            this.IRSNumber = 0; // filled by some other function
         }
 
 
@@ -34,11 +34,11 @@ namespace Week3_BankAccount.Models
         {
             this.Name = name;
             this.CurrentBalance = initialBalance;
-            this.Number = s_accountNumberSeed.ToString("000000000000"); // dream bigger. our bank is going to serve the entire planet.
+            this.IDNumber = s_accountNumberSeed.ToString("000000000000"); // dream bigger. our bank is going to serve the entire planet.
             s_accountNumberSeed++;
 
             this.AccountholderID = accountholderID;
-            this.IRSReportingNumber = 0; // filled by some other function
+            this.IRSNumber = 0; // filled by some other function
         }
 
 

@@ -2,12 +2,12 @@
 @model Week3_BankAccount.Pages.People.CreateModel
 
         @{
-        ViewData["Title"] = "Create";
+        ViewData["Title"] = "New Account Holder";
         }
         
         <h1>Create</h1>
         
-    <h4>AccountHolder</h4>
+    <h4>New Account Holder</h4>
     <hr />
     <div class="row">
     <div class="col-md-4">
@@ -35,13 +35,13 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="AccountHolder.IsCriminal" /> @Html.DisplayNameFor(model => model.AccountHolder.IsCriminal)
+                    <input class="form-check-input" asp-for="AccountHolder.IsNefarious" /> @Html.DisplayNameFor(model => model.AccountHolder.IsNefarious)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="AccountHolder.IRSReportingNumber" class="control-label"></label>
-                <input asp-for="AccountHolder.IRSReportingNumber" class="form-control" />
-                <span asp-validation-for="AccountHolder.IRSReportingNumber" class="text-danger"></span>
+                <label asp-for="AccountHolder.IRSNumber" class="control-label"></label>
+                <input asp-for="AccountHolder.IRSNumber" class="form-control" />
+                <span asp-validation-for="AccountHolder.IRSNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

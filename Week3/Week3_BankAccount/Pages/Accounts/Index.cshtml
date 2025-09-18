@@ -2,13 +2,13 @@
 @model Week3_BankAccount.Pages.Accounts.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Account List";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Open an Account</a>
 </p>
 <table class="table">
     <thead>
@@ -20,7 +20,7 @@
                 @Html.DisplayNameFor(model => model.BankAccount[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BankAccount[0].IRSReportingNumber)
+                @Html.DisplayNameFor(model => model.BankAccount[0].IRSNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.BankAccount[0].AccountholderID)
@@ -38,15 +38,15 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IRSReportingNumber)
+                @Html.DisplayFor(modelItem => item.IRSNumber)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AccountholderID)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Number">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Number">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Number">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.IDNumber">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IDNumber">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IDNumber">Delete</a>
             </td>
         </tr>
 }

@@ -2,21 +2,21 @@
 @model Week3_BankAccount.Pages.Accounts.CreateModel
 
         @{
-        ViewData["Title"] = "Create";
+        ViewData["Title"] = "New Bank Account";
         }
         
-        <h1>Create</h1>
-        
-    <h4>BankAccount</h4>
+        <h1>Create a Bank Account</h1>
+
+    <h4>Details</h4>        
     <hr />
     <div class="row">
     <div class="col-md-4">
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="BankAccount.Number" class="control-label"></label>
-                <input asp-for="BankAccount.Number" class="form-control" />
-                <span asp-validation-for="BankAccount.Number" class="text-danger"></span>
+                <label asp-for="BankAccount.IDNumber" class="control-label"></label>
+                <input asp-for="BankAccount.IDNumber" class="form-control" />
+                <span asp-validation-for="BankAccount.IDNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BankAccount.CurrentBalance" class="control-label"></label>
@@ -29,9 +29,9 @@
                 <span asp-validation-for="BankAccount.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BankAccount.IRSReportingNumber" class="control-label"></label>
-                <input asp-for="BankAccount.IRSReportingNumber" class="form-control" />
-                <span asp-validation-for="BankAccount.IRSReportingNumber" class="text-danger"></span>
+                <label asp-for="BankAccount.IRSNumber" class="control-label"></label>
+                <input asp-for="BankAccount.IRSNumber" class="form-control" />
+                <span asp-validation-for="BankAccount.IRSNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BankAccount.AccountholderID" class="control-label"></label>
