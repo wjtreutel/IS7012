@@ -12,9 +12,9 @@ namespace Week3_BankAccount.Pages.People
 {
     public class IndexModel : PageModel
     {
-        private readonly Week3_BankAccount.Data.DBContext _context;
+        private readonly DBContext _context;
 
-        public IndexModel(Week3_BankAccount.Data.DBContext context)
+        public IndexModel(DBContext context)
         {
             _context = context;
         }

@@ -33,7 +33,7 @@ namespace Week3_BankAccount.Pages.People
             if (accountholder is not null)
             {
                 AccountHolder = accountholder;
-
+                ViewData["TotalBalance"] = _context.BankAccount.Where(x => x.AccountholderID == id).Sum(s => s.CurrentBalance);
                 return Page();
             }
 

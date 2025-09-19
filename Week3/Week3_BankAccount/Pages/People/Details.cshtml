@@ -5,18 +5,12 @@
     ViewData["Title"] = "The Complete History of the Account Holder";
 }
 
-<h1>So, About the Account Holder...</h1>
+<h1>Client Details</h1>
 
 <div>
-    <h4>AccountHolder</h4>
+    <h4>@Model.AccountHolder.LastName, @Model.AccountHolder.FirstName</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.AccountHolder.FirstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.AccountHolder.FirstName)
-        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.AccountHolder.LastName)
         </dt>
@@ -40,6 +34,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.AccountHolder.IRSNumber)
+        </dd>
+        <dt class="col-sm-2">
+            Total Balance Across Accounts   
+        </dt>
+        <dd class="col-sm-10"> 
+            @String.Format("${0:#.00}",ViewData["TotalBalance"])
         </dd>
     </dl>
 </div>

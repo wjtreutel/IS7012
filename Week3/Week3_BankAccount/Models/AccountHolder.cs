@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Week3_BankAccount.Models
 {
@@ -6,12 +7,18 @@ namespace Week3_BankAccount.Models
     {
         private static int s_accountNumberSeed = 1234567890;
         [Key]
+        [DisplayName("ID")]
         public string IDNumber { get; set; }
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
+        [DisplayName("Date of Birth")]
         public DateOnly DateOfBirth { get; set; }
+        [DisplayName("Nefarious?")]
         public bool IsNefarious { get; set; }
-        public int IRSNumber { get; set; }
+        [DisplayName("IRS #")] // several ways to slice this, but (against my tastes) this is the format I've most encountered in industry
+        public Nullable<int> IRSNumber { get; set; }
 
 
         public AccountHolder()

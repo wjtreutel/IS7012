@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,16 @@ namespace Week3_BankAccount.Models
         private static int s_accountNumberSeed = 1234567890;
 
         [Key]
+        [DisplayName("ID")]
         public string IDNumber { get; set; }
-        public decimal CurrentBalance { get; set; }
+        [DisplayName("Current Balance")]
+        public double CurrentBalance { get; set; }
+        [DisplayName("Name")] // (for consistency)
         public string Name { get; set; }
-        public int IRSNumber { get; set; }
-        public int AccountholderID { get; set; }
+        [DisplayName("IRS #")]
+        public Nullable<int> IRSNumber { get; set; }
+        [DisplayName("Account Holder ID")]
+        public string AccountholderID { get; set; }
 
         public BankAccount()
         {
@@ -25,12 +31,12 @@ namespace Week3_BankAccount.Models
             this.CurrentBalance = 0;
             s_accountNumberSeed++;
 
-            this.AccountholderID = 0;
+            this.AccountholderID = "0";
             this.IRSNumber = 0; // filled by some other function
         }
 
 
-        public BankAccount(string name, decimal initialBalance, int accountholderID = 0)
+        public BankAccount(string name, double initialBalance, string accountholderID = "")
         {
             this.Name = name;
             this.CurrentBalance = initialBalance;
@@ -43,7 +49,7 @@ namespace Week3_BankAccount.Models
 
 
         // leave room to add other functionality later -- perhaps logging, records update, etc.
-        public void AssignAccount(int newAccountholder)
+        public void AssignAccount(string newAccountholder)
         {
             this.AccountholderID = newAccountholder;
         }
