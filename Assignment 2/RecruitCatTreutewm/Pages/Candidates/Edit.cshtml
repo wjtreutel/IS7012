@@ -1,0 +1,84 @@
+﻿@page
+@model RecruitCatTreutewm.Pages.Candidates.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Candidate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Candidate.ID" />
+            <div class="form-group">
+                
+                <label asp-for="Candidate.FirstName" class="control-label"></label>
+                <input asp-for="Candidate.FirstName" class="form-control" />
+                <span asp-validation-for="Candidate.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Candidate.LastName" class="control-label"></label>
+                <input asp-for="Candidate.LastName" class="form-control" />
+                <span asp-validation-for="Candidate.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Candidate.TargetSalary" class="control-label"></label>
+                <input asp-for="Candidate.TargetSalary" class="form-control" />
+                <span asp-validation-for="Candidate.TargetSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Candidate.StartDate" class="control-label"></label>
+                <input asp-for="Candidate.StartDate" class="form-control" />
+                <span asp-validation-for="Candidate.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Candidate.CompanyID" class="control-label"></label>
+                <input asp-for="Candidate.CompanyID" class="form-control" />
+                <span asp-validation-for="Candidate.CompanyID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Candidate.IndustryID" class="control-label"></label>
+                <input asp-for="Candidate.IndustryID" class="form-control" />
+                <span asp-validation-for="Candidate.IndustryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Candidate.JobTitleID" class="control-label"></label>
+                <input asp-for="Candidate.JobTitleID" class="form-control" />
+                <span asp-validation-for="Candidate.JobTitleID" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Candidate.IsEmployed" /> @Html.DisplayNameFor(model => model.Candidate.IsEmployed)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Candidate.IsDesperate" /> @Html.DisplayNameFor(model => model.Candidate.IsDesperate)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

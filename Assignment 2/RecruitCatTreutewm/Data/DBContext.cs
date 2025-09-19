@@ -15,5 +15,8 @@ namespace RecruitCatTreutewm.Data
         }
 
         public DbSet<RecruitCatTreutewm.Models.Company> Company { get; set; } = default!;
+        public DbSet<RecruitCatTreutewm.Models.Candidate> Candidate { get; set; } = default!;
+        public DbSet<RecruitCatTreutewm.Models.Industry> Industry { get; set; } = default!;
+        public DbSet<RecruitCatTreutewm.Models.JobTitle> JobTitle { get; set; } = default!;
     }
 }
