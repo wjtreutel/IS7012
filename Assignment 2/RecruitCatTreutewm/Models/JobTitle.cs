@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace RecruitCatTreutewm.Models
 {
@@ -6,11 +7,30 @@ namespace RecruitCatTreutewm.Models
     {
         [Key]
         public int ID { get; set; }
+
+        [Required]
+        [StringLength(32)] // Someone in the real world probably has a 500+ character job title, but they will not have it here.
         public string Name { get; set; }
-        public int MinimumSalary { get; set; }
-        public int MaximumSalary { get; set; }
+
+        [Required]
+        [StringLength(512)]
         public string Description { get; set; }
-        public decimal RequiredYOE { get; set; 
+
+
+        [Required]
+        [DisplayName("Min Salary")]
+        [Range(0,int.MaxValue)]
+        public int MinimumSalary { get; set; }
+
+        [Required]
+        [DisplayName("Max Salary")]
+        [Range(0,int.MaxValue)]
+        public int MaximumSalary { get; set; }
+
+
+        [DisplayName("Min YOE")]
+        [Range(0,100)]
+        public Nullable<decimal> RequiredYOE { get; set; 
         }
     }
 }
