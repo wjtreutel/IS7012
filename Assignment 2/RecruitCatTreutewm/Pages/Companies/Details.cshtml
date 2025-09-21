@@ -66,6 +66,33 @@
             @Html.DisplayFor(model => model.Company.RejectedCandidateCount)
         </dd>
     </dl>
+
+    <h5>Associated Candidates</h5>
+    @if (Model.CandidateList.Count > 0) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Last Name</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Target Salary</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Job Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CandidateList) {
+                <tr>
+                    <th scope="row">@item.LastName</th>
+                    <td>@item.FirstName</td>
+                    <td>@item.TargetSalary</td>
+                    <td>@item.StartDate</td>
+                    <td>@Model.PositionHash[item.JobTitleID]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+    else { <p>(No associated candidates)</p>}
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Company.ID">Edit</a> |

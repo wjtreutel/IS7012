@@ -23,6 +23,8 @@ namespace RecruitCatTreutewm.Pages.CompanyFolder
         public Company Company { get; set; } = default!;
         public string Industry  { get; set; }
         public string Position       { get; set; }
+        public List<Candidate> CandidateList { get; set; }
+        public Hashtable PositionHash = new Hashtable();
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -33,8 +35,13 @@ namespace RecruitCatTreutewm.Pages.CompanyFolder
 
             var company = await _context.Company.FirstOrDefaultAsync(m => m.ID == id);
            
-            Industry = _context.Industry.Where(x => x.ID == company.IndustryID).Select(x => x.Name).FirstOrDefault();
-            Position = _context.JobTitle.Where(x => x.ID == company.OpenPositionID).Select(x => x.Name).FirstOrDefault();
+            Industry = _context.Industry.Where(x => x.ID == company.IndustryID).Select(s => s.Name).FirstOrDefault();
+            Position = _context.JobTitle.Where(x => x.ID == company.OpenPositionID).Select(s => s.Name).FirstOrDefault();
+            CandidateList = _context.Candidate.Where(x => x.CompanyID == company.ID).OrderBy(o => o.LastName).ToList();
+            foreach (var item in _context.JobTitle.ToList())
+            {
+                PositionHash.Add(item.ID, item.Name);
+            }
 
             if (company is not null)
             {
