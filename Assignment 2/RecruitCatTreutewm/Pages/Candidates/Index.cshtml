@@ -58,9 +58,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
-            <td>
-                @(item.CompanyID != null ?  Html.Display(Model.CompanyHash[item.CompanyID].ToString()) : "") 
-            </td>
+            @if (item.CompanyID != null)
+            {
+                <td>@Model.CompanyHash[item.CompanyID].ToString()</td>
+            } 
+            else
+            { 
+            <td></td>
+            }
             <td>
                     @Model.IndustryHash[item.IndustryID]
             </td>
