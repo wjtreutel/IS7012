@@ -17,7 +17,7 @@ namespace RecruitCatTreutewm.Pages.CompanyFolder
         public CreateModel(RecruitCatTreutewm.Data.DBContext context)
         {
             _context = context;
-            IndustryList = _context.Industry.ToList();
+            IndustryList = _context.Industry.OrderBy(x => x.Name).ToList();
             JobTitleList = _context.JobTitle.OrderBy(x => x.Name).ToList();
         }
 
@@ -28,8 +28,8 @@ namespace RecruitCatTreutewm.Pages.CompanyFolder
 
         [BindProperty]
         public Company Company { get; set; } = default!;
-        public List<Industry> IndustryList { get; set; } = new List<Industry>();
-        public List<JobTitle> JobTitleList { get; set; } = new List<JobTitle>();
+        public List<Industry> IndustryList { get; set; }
+        public List<JobTitle> JobTitleList { get; set; }
         
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
