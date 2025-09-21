@@ -39,7 +39,7 @@
             @Html.DisplayNameFor(model => model.Candidate.CompanyID)
         </dt>
         <dd class="col-sm-10">
-            @Model.Company
+            <a href="/Companies/Details?id=@Model.Candidate.CompanyID">@Model.Company</a>
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Candidate.IndustryID)

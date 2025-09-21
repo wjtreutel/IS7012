@@ -82,7 +82,7 @@
         <tbody>
             @foreach (var item in Model.CandidateList) {
                 <tr>
-                    <th scope="row">@item.LastName</th>
+                    <th scope="row"><a href="/Candidates/Details?id=@item.ID">@item.LastName</a></th>
                     <td>@item.FirstName</td>
                     <td>@item.TargetSalary</td>
                     <td>@item.StartDate</td>
