@@ -17,6 +17,8 @@ namespace RecruitCatTreutewm.Pages.CompanyFolder
         public CreateModel(RecruitCatTreutewm.Data.DBContext context)
         {
             _context = context;
+            IndustryList = _context.Industry.ToList();
+            JobTitleList = _context.JobTitle.OrderBy(x => x.Name).ToList();
         }
 
         public IActionResult OnGet()
@@ -26,20 +28,17 @@ namespace RecruitCatTreutewm.Pages.CompanyFolder
 
         [BindProperty]
         public Company Company { get; set; } = default!;
+        public List<Industry> IndustryList { get; set; } = new List<Industry>();
+        public List<JobTitle> JobTitleList { get; set; } = new List<JobTitle>();
         
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-
-            ViewData["IndustryDropdown"] = new SelectList(_context.Industry, "ID", "Name");
-            ViewData["OpenPositionID"] = new SelectList(_context.JobTitle, "ID", "Name");
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            
 
             _context.Company.Add(Company);
             await _context.SaveChangesAsync();

@@ -11,9 +11,6 @@
     <div class="col-md-4">
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div>
-                @ViewData["IndustryDropdown"].
-            </div>
             <div class="form-group">
                 <label asp-for="Company.Name" class="control-label"></label>
                 <input asp-for="Company.Name" class="form-control" />
@@ -21,7 +18,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Company.OpenPositionID" class="control-label"></label>
-                <input asp-for="Company.OpenPositionID" class="form-control" />
+                <select asp-for=Company.OpenPositionID">
+                    @foreach (var item in Model.JobTitleList)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
                 <span asp-validation-for="Company.OpenPositionID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -46,7 +48,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Company.IndustryID" class="control-label"></label>
-                <input asp-for="Company.IndustryID" class="form-control" />
+                <select asp-for=Company.IndustryID">
+                    @foreach (var item in Model.IndustryList)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
                 <span asp-validation-for="Company.IndustryID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -55,9 +62,7 @@
                 <span asp-validation-for="Company.PositionOpenDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Company.RejectedCandidateCount" class="control-label"></label>
-                <input asp-for="Company.RejectedCandidateCount" class="form-control" />
-                <span asp-validation-for="Company.RejectedCandidateCount" class="text-danger"></span>
+                <input type="hidden" value="0" asp-for="Company.RejectedCandidateCount" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

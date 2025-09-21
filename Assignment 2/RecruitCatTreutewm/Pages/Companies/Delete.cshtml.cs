@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatTreutewm.Data;
 using RecruitCatTreutewm.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace RecruitCatTreutewm.Pages.CompanyFolder
 {
@@ -21,6 +22,8 @@ namespace RecruitCatTreutewm.Pages.CompanyFolder
 
         [BindProperty]
         public Company Company { get; set; } = default!;
+        public string Industry { get; set; }
+        public string Position { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -34,7 +37,8 @@ namespace RecruitCatTreutewm.Pages.CompanyFolder
             if (company is not null)
             {
                 Company = company;
-
+                Industry = _context.Industry.Where(x => x.ID == company.IndustryID).Select(x => x.Name).FirstOrDefault();
+                Position = _context.JobTitle.Where(x => x.ID == company.OpenPositionID).Select(x => x.Name).FirstOrDefault();
                 return Page();
             }
 
