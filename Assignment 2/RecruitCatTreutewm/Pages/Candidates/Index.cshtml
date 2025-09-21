@@ -5,19 +5,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>All Candidates</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <i>This list is incomplete. You can help by <a asp-page="Create">expanding it</a>.</i>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].FirstName)
+                @Html.DisplayNameFor(model => model.Candidate[0].LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].LastName)
+                @Html.DisplayNameFor(model => model.Candidate[0].FirstName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Candidate[0].TargetSalary)
@@ -47,10 +47,10 @@
 @foreach (var item in Model.Candidate) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TargetSalary)
