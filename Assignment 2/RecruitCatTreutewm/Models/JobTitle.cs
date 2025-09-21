@@ -30,7 +30,7 @@ namespace RecruitCatTreutewm.Models
 
         [DisplayName("Min YOE")]
         [Range(0,100)]
-        public Nullable<decimal> RequiredYOE { get; set; 
+        public Nullable<double> RequiredYOE { get; set; 
         }
     }
 }

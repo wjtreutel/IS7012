@@ -26,14 +26,20 @@ namespace RecruitCatTreutewm.Pages.CompanyFolder
 
         [BindProperty]
         public Company Company { get; set; } = default!;
+        
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+
+            ViewData["IndustryDropdown"] = new SelectList(_context.Industry, "ID", "Name");
+            ViewData["OpenPositionID"] = new SelectList(_context.JobTitle, "ID", "Name");
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
+            
 
             _context.Company.Add(Company);
             await _context.SaveChangesAsync();

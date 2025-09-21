@@ -24,10 +24,13 @@ namespace RecruitCatTreutewm.Models
         [DataType(DataType.Date)]
         public Nullable<DateTime> StartDate {  get; set; }
 
+        [DisplayName("Company")]
         public Nullable<int> CompanyID { get; set; }
 
+        [DisplayName("Industry")]
         public int IndustryID { get; set; }
 
+        [DisplayName("Position")]
         public int JobTitleID { get; set; }
 
 

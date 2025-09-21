@@ -15,13 +15,14 @@ namespace RecruitCatTreutewm.Models
         public string Name {  get; set; }
 
         [Required]
+        [DisplayName("Open Position")]
         public int OpenPositionID { get; set; }
 
         [DisplayName("Min Salary")]
         [Range(0,int.MaxValue)]
         public int MinimumSalary { get; set; }
 
-        [DisplayName("Max Salary>")]
+        [DisplayName("Max Salary")]
         [Range(0, int.MaxValue)]
         public int MaximumSalary { get; set; }
 
@@ -34,6 +35,7 @@ namespace RecruitCatTreutewm.Models
         public Nullable<DateTime> StartDate { get; set; }
 
         [Required]
+        [DisplayName("Industry")]
         public int IndustryID  { get; set; }
 
         [DisplayName("Position Open Date")]

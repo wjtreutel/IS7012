@@ -47,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OpenPositionID)
+                 @Model.JobHash[item.OpenPositionID]
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MinimumSalary)
@@ -56,13 +56,10 @@
                 @Html.DisplayFor(modelItem => item.MaximumSalary)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IndustryID)
+                @Model.IndustryHash[item.IndustryID]
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PositionOpenDate)
