@@ -33,18 +33,34 @@
                 <span asp-validation-for="Candidate.StartDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Candidate.CompanyID" class="control-label"></label>
-                <input asp-for="Candidate.CompanyID" class="form-control" />
+                <label asp-for="Candidate.CompanyID" class="control-label"></label>                
+                <select asp-for=Candidate.CompanyID">
+                    <option value=""></option>
+                    @foreach (var item in Model.CompanyList)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
                 <span asp-validation-for="Candidate.CompanyID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Candidate.IndustryID" class="control-label"></label>
-                <input asp-for="Candidate.IndustryID" class="form-control" />
+                <select asp-for=Candidate.IndustryID">
+                    @foreach (var item in Model.IndustryList)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
                 <span asp-validation-for="Candidate.IndustryID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Candidate.JobTitleID" class="control-label"></label>
-                <input asp-for="Candidate.JobTitleID" class="form-control" />
+                <select asp-for=Candidate.JobTitleID">
+                    @foreach (var item in Model.JobTitleList)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
                 <span asp-validation-for="Candidate.JobTitleID" class="text-danger"></span>
             </div>
             <div class="form-group form-check">

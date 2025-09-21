@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatTreutewm.Data;
 using RecruitCatTreutewm.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace RecruitCatTreutewm.Pages.Candidates
 {
@@ -21,6 +22,9 @@ namespace RecruitCatTreutewm.Pages.Candidates
 
         [BindProperty]
         public Candidate Candidate { get; set; } = default!;
+        public string Industry { get; set; }
+        public string Position { get; set; }
+        public string Company { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -34,6 +38,9 @@ namespace RecruitCatTreutewm.Pages.Candidates
             if (candidate is not null)
             {
                 Candidate = candidate;
+                Company = _context.Company.Where(x => x.ID == candidate.CompanyID).Select(x => x.Name).FirstOrDefault();
+                Industry = _context.Industry.Where(x => x.ID == candidate.IndustryID).Select(x => x.Name).FirstOrDefault();
+                Position = _context.JobTitle.Where(x => x.ID == candidate.JobTitleID).Select(x => x.Name).FirstOrDefault();
 
                 return Page();
             }

@@ -17,6 +17,9 @@ namespace RecruitCatTreutewm.Pages.Candidates
         public CreateModel(RecruitCatTreutewm.Data.DBContext context)
         {
             _context = context;
+            IndustryList = _context.Industry.OrderBy(x => x.Name).ToList();
+            JobTitleList = _context.JobTitle.OrderBy(x => x.Name).ToList();
+            CompanyList = _context.Company.OrderBy(x => x.Name).ToList();
         }
 
         public IActionResult OnGet()
@@ -26,6 +29,9 @@ namespace RecruitCatTreutewm.Pages.Candidates
 
         [BindProperty]
         public Candidate Candidate { get; set; } = default!;
+        public List<Industry> IndustryList { get; set; }
+        public List<JobTitle> JobTitleList { get; set; }
+        public List<Company> CompanyList { get; set; }  
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()

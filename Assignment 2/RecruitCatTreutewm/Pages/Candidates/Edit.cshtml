@@ -15,44 +15,54 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Candidate.ID" />
             <div class="form-group">
-                
                 <label asp-for="Candidate.FirstName" class="control-label"></label>
                 <input asp-for="Candidate.FirstName" class="form-control" />
                 <span asp-validation-for="Candidate.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
                 <label asp-for="Candidate.LastName" class="control-label"></label>
                 <input asp-for="Candidate.LastName" class="form-control" />
                 <span asp-validation-for="Candidate.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
                 <label asp-for="Candidate.TargetSalary" class="control-label"></label>
                 <input asp-for="Candidate.TargetSalary" class="form-control" />
                 <span asp-validation-for="Candidate.TargetSalary" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
                 <label asp-for="Candidate.StartDate" class="control-label"></label>
                 <input asp-for="Candidate.StartDate" class="form-control" />
                 <span asp-validation-for="Candidate.StartDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
                 <label asp-for="Candidate.CompanyID" class="control-label"></label>
-                <input asp-for="Candidate.CompanyID" class="form-control" />
+                <select asp-for=Candidate.CompanyID">
+                    <option value=""></option>
+                    @foreach (var item in Model.CompanyList)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
                 <span asp-validation-for="Candidate.CompanyID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
                 <label asp-for="Candidate.IndustryID" class="control-label"></label>
-                <input asp-for="Candidate.IndustryID" class="form-control" />
+                <select asp-for=Candidate.IndustryID">
+                    @foreach (var item in Model.IndustryList)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
                 <span asp-validation-for="Candidate.IndustryID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Candidate.JobTitleID" class="control-label"></label>
-                <input asp-for="Candidate.JobTitleID" class="form-control" />
+                <select asp-for=Candidate.JobTitleID">
+                    @foreach (var item in Model.JobTitleList)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
                 <span asp-validation-for="Candidate.JobTitleID" class="text-danger"></span>
             </div>
             <div class="form-group form-check">

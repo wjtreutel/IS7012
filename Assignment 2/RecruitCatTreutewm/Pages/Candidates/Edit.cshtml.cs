@@ -18,10 +18,16 @@ namespace RecruitCatTreutewm.Pages.Candidates
         public EditModel(RecruitCatTreutewm.Data.DBContext context)
         {
             _context = context;
+            IndustryList = _context.Industry.OrderBy(x => x.Name).ToList();
+            JobTitleList = _context.JobTitle.OrderBy(x => x.Name).ToList();
+            CompanyList = _context.Company.OrderBy(x => x.Name).ToList();
         }
 
         [BindProperty]
         public Candidate Candidate { get; set; } = default!;
+        public List<Industry> IndustryList { get; set; }
+        public List<JobTitle> JobTitleList { get; set; }
+        public List<Company> CompanyList { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

@@ -59,13 +59,13 @@
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CompanyID)
+                @(item.CompanyID != null ?  Html.Display(Model.CompanyHash[item.CompanyID].ToString()) : "") 
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IndustryID)
+                    @Model.IndustryHash[item.IndustryID]
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.JobTitleID)
+                    @Model.JobHash[item.JobTitleID]
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsEmployed)
