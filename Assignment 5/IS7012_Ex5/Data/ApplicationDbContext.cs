@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using IS7012_Ex5.Models;
 
 namespace IS7012_Ex5.Data
 {
@@ -9,5 +10,6 @@ namespace IS7012_Ex5.Data
             : base(options)
         {
         }
+        public DbSet<IS7012_Ex5.Models.Movie> Movie { get; set; } = default!;
     }
 }
